@@ -2,6 +2,9 @@
 a very slim wrapper which allows you to structure your code like node.js modules.
 they will be combined to a single file which can be consumed by browsers.
 
+## build status
+[![Build Status](https://travis-ci.org/Bonuspunkt/browsermodules.png)](https://travis-ci.org/Bonuspunkt/browsermodules)
+
 ## usage
 ### cli
 ```
