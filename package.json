@@ -1,7 +1,7 @@
 {
   "name": "browsermodules",
   "version": "0.0.0",
-  "description": "node modules for the browser",
+  "description": "package node module style files for the browser",
   "main": "index.js",
   "directories": {
     "test": "test"
