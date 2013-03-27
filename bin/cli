@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+
+var argv = require('optimist')
+  .options('i', {
+    alias: 'in',
+    demand: true,
+    describe: 'input file'
+  })
+  .options('o', {
+    alias: 'out',
+    demand: true,
+    describe: 'output file'
+  })
+  .options('e', {
+    alias: 'eval',
+    describe: 'use sourceURL feature'
+  })
+  .argv;
+
+require('../index')(argv);

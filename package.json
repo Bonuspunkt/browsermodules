@@ -1,0 +1,27 @@
+{
+  "name": "browsermodules",
+  "version": "0.0.0",
+  "description": "node modules for the browser",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "optimist": "~0.3.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "bin": {
+    "browserModules": "./bin/cli"
+  },
+  "repository": "https://github.com/Bonuspunkt/browsermodules.git",
+  "keywords": [
+    "node",
+    "modules",
+    "browser"
+  ],
+  "author": "bonuspunkt",
+  "license": "BSD"
+}

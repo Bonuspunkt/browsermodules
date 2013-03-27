@@ -1,0 +1,3 @@
+// a
+
+module.exports = 'a';
