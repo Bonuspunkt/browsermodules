@@ -25,3 +25,15 @@ browsermodules({
   close: function() { console.log('output complete'); }
 });
 ```
+
+## tradeoffs
+you can use
+
+- `module`
+- `exports`
+
+but there is no support for:
+
+- `__filename`
+- `__dirname`
+- node internals like `process` and `Buffer`
