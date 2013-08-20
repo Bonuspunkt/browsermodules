@@ -1,6 +1,8 @@
 var fs = require('fs');
 var path = require('path');
 
+var falafel = require('falafel');
+
 module.exports = function buildScript(argv) {
   var rootFilePath = path.resolve(argv.in);
   var rootDir = path.dirname(rootFilePath);
@@ -16,22 +18,23 @@ module.exports = function buildScript(argv) {
 
   function analyze(filePath) {
 
-    var text = fs.readFileSync(filePath, 'utf8');
-    var rx = /require\('(.*?)'\)/g;
-    var match;
-
     var mappingName = path.relative(rootDir, filePath);
     mappingName = mappingName.substring(0, mappingName.length - 3);
 
-    text = text.replace(rx, function(full, match) {
+    var text = fs.readFileSync(filePath, 'utf8');
+    text = falafel(text, function(node) {
+      if (node.type === 'CallExpression' &&
+          node.callee.type === 'Identifier' &&
+          node.callee.name === 'require') {
 
-      var file = match;
-      var nextPath = path.resolve(path.dirname(filePath), file + '.js');
-      var result = analyze(nextPath);
-      return 'require(\'' + result + '\')';
+        var file = node.arguments[0].value;
+        var nextPath = path.resolve(path.dirname(filePath), file + '.js');
+        var result = analyze(nextPath);
+        node.update('require(\'' + result + '\')');
+      }
     });
 
-    requires[mappingName] = text;
+    requires[mappingName] = text.toString();
     return mappingName;
   }
 
