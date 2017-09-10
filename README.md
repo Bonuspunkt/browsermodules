@@ -1,6 +1,8 @@
 consider using [webmake](https://github.com/medikoo/modules-webmake)
 
 # browsermodules
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/Bonuspunkt/browsermodules.svg)](https://greenkeeper.io/)
 a very slim wrapper which allows you to structure your code like node.js modules.
 they will be combined to a single file which can be consumed by browsers.
 
